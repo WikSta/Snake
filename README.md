@@ -3,6 +3,7 @@
 * [Assets and the Font](#assets-and-the-font)
 * [Technologies](#technologies)
 * [Installation](#installation)
+* [Linux Installation](#linux)
 * [Features](#features)
 * [Inspiration and Help](#inspiration-and-help)
 
@@ -15,7 +16,8 @@ The application uses a tileset made of assets created by [Clear Code](https://ww
 The files of the assets are in the resources directory; however, they are not required to compile the program since they are already included in the source files as byte arrays. The program does not require any external files to run. It is fully standalone.
 
 ## Technologies
-- Microsoft Visual Studio Community 2022 17.3.3 with Microsoft Visual C++ 2022 compiler for Windows
+- Microsoft Visual Studio Community 2022 17.3.3 with Microsoft Visual C++ 2022 compiler for Windows 10 Professional
+- g++ (GCC) 12.2.1 20221121 (Red Hat 12.2.1-4) compiler for Fedora release 36
 - SFML 2.5.1 library
 
 ## Installation
@@ -60,7 +62,20 @@ sfml-main.lib`
 A more detailed tutorial can be found [here](https://www.sfml-dev.org/tutorials/2.6/start-vc.php).
 
 ### Linux
-[Instructions for Linux installation can be added here.]
+`<username>` is your user name
+1. Download the [SFML library](https://www.sfml-dev.org/download/sfml/2.6.0/).
+2. Extract the arcive to the directory where you want to store SFML libraries (e.g., `/home/<username>/Documents/Source/libs`)
+`sudo tar -xvzf /home/<username>/Downloads/SFML-2.6.0-linux-gcc-64-bit.tar.gz -C /home/<username>/Documents/Source/libs`
+3. Go to the directory where you want to store your source files. Paste all the headers from the include directory and all the source files from the src directory into this directory. They must share the same directory (e.g., `/home/<username>/Documents/Source/Snake-SFML`).
+4. Download and install the G++ compiler from the repository. If you already have the compiler installed, you can skip this step. Use the following command for Fedora:
+`sudo dnf install g++`
+5. Go to the directory where you pasted the source files. In our example, use the following command:
+`/home/<username>/Documents/Source/Snake-SFML`
+6. Compile the files using the following command. Specify the path to the include and lib directories and link the necessary libraries:
+`g++ *.cpp -I/home/<username>/Documents/Source/libs/SFML-2.6.0/include -L/home/<username>/Documents/Source/libs/SFML-2.6.0/lib -lsfml-window -lsfml-graphics -lsfml-system`
+7. Since we did not install the library in the standard path, we need to set the dynamic linker path to the SFML libraries. In our case, use the following command:
+`export LD_LIBRARY_PATH=/home/<username>/Documents/Source/libs/SFML-2.6.0/lib && ./a.out`
+
 
 ## Features
 The game is simple. After running the file, you will see instructions.
