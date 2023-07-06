@@ -2,7 +2,7 @@
 * [General Information](#general-information)
 * [Assets and the Font](#assets-and-the-font)
 * [Technologies](#technologies)
-* [Installation](#installation)
+* [Windows Installation](#windows)
 * [Linux Installation](#linux)
 * [Features](#features)
 * [Inspiration and Help](#inspiration-and-help)
